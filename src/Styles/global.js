@@ -1,4 +1,36 @@
 import { createGlobalStyle } from "styled-components";
 
-export default createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+}
+
+h1 {
+    font-weight: 700;
+}
+h2 {
+    font-weight: 600;
+}
+h3 {
+    font-weight: 700;
+}
+h4 {
+    font-weight: 600;
+}
+span {
+    font-weight: 400;
+}
+
+:root {
+    --pink-1: #FF577F;
+    --pink-2: #FF427F;
+    --pink-3: #59323F;
+    --grey-4: #121214;
+    --grey-3: #212529;
+    --grey-2: #343B41;
+    --grey-1: #868E96;
+}
 `;
+export default GlobalStyle;
