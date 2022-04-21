@@ -22,28 +22,29 @@ const Register = () => {
         <span>Rápido e grátis, vamos nessa!</span>
         <form>
           <Input
-            autocomplete="off"
+            height="80px"
+            autoComplete="off"
             label="Nome"
             register={register}
             name={"name"}
             placeholder="Digite aqui seu nome"
           />
           <Input
-            autocomplete="off"
+            autoComplete="off"
             label="Email"
             register={register}
             name={"email"}
             placeholder="Digite aqui seu email"
           />
           <Input
-            autocomplete="off"
+            autoComplete="off"
             label="Senha"
             register={register}
             name={"password"}
             placeholder="Digite aqui sua senha"
           />
           <Input
-            autocomplete="off"
+            autoComplete="off"
             label="Confirmar Senha"
             register={register}
             name={"confirmPassword"}
