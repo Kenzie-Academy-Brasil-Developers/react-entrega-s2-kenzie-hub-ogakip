@@ -2,8 +2,8 @@ import { Container, InputContainer } from "./style";
 
 const Input = ({ label, height, register, name, ...rest }) => {
   return (
-    <Container>
-      <InputContainer height={height}>
+    <Container height={height}>
+      <InputContainer>
         <label>{label}</label>
         <input {...register(`${name}`)} {...rest} />
       </InputContainer>
