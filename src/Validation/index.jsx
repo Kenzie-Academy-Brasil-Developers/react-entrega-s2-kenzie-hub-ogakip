@@ -23,4 +23,5 @@ export const RegisterSchema = yup.object().shape({
     .string()
     .required("A confirmação de senha é obrigatória!")
     .oneOf([yup.ref("password"), null], "As senhas não coincidem"),
+  mosule: yup.string(),
 });
