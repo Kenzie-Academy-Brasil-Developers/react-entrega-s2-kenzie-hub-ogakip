@@ -22,7 +22,7 @@ const Register = () => {
         <span>Rápido e grátis, vamos nessa!</span>
         <form>
           <Input
-            height="80px"
+            height="65px"
             autoComplete="off"
             label="Nome"
             register={register}
@@ -30,6 +30,7 @@ const Register = () => {
             placeholder="Digite aqui seu nome"
           />
           <Input
+            height="65px"
             autoComplete="off"
             label="Email"
             register={register}
@@ -37,6 +38,7 @@ const Register = () => {
             placeholder="Digite aqui seu email"
           />
           <Input
+            height="65px"
             autoComplete="off"
             label="Senha"
             register={register}
@@ -44,6 +46,7 @@ const Register = () => {
             placeholder="Digite aqui sua senha"
           />
           <Input
+            height="65px"
             autoComplete="off"
             label="Confirmar Senha"
             register={register}
@@ -51,7 +54,7 @@ const Register = () => {
             placeholder="Digite novamente sua senha"
           />
           <S.ModuleContainer>
-          <label>Selecionar Módulo</label>
+            <label>Selecionar Módulo</label>
             <S.SelectContainer>
               <select {...register("module")}>
                 <option value="Primeiro módulo (Introdução ao Frontend)">

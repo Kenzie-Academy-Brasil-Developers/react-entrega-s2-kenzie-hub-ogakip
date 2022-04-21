@@ -8,6 +8,10 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: var(--grey-4);
+
+  button {
+      cursor: pointer;
+  }
 `;
 
 export const FormContainer = styled.div`
@@ -43,21 +47,21 @@ export const FormContainer = styled.div`
     margin-bottom: 33px;
 
     button {
-        padding: 10px 0px 10px 0px;
+      padding: 10px 0px 10px 0px;
     }
   }
 `;
 
 export const ModuleContainer = styled.div`
   width: 90%;
-  height: 60px;
+  height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
   label {
-      font-size: 12.18px;
-      color: var(--grey-0);
+    font-size: 12.18px;
+    color: var(--grey-0);
   }
 `;
 
@@ -91,4 +95,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 25px 0px 25px 0px;
+
+  @media (min-width: 768px) {
+    margin: 0px 0px 25px 0px;
+  }
 `;
