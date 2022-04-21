@@ -1,11 +1,11 @@
 import { Container, InputContainer } from "./style";
 
-const Input = ({ label, name, ...rest }) => {
+const Input = ({ label, register, name, ...rest }) => {
   return (
     <Container>
       <InputContainer>
         <label>{label}</label>
-        <input {...rest} />
+        <input {...register(`${name}`)} {...rest}/>
       </InputContainer>
     </Container>
   );

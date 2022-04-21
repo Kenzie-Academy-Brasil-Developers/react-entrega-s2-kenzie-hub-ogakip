@@ -1,32 +1,36 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
-  width: 100%;
+  width: 90%;
   height: 60px;
   display: flex;
   justify-content: center;
-  background-color: pink;
 
   label {
     font-size: 12.18px;
     font-weight: 400;
+    color: var(--grey-0);
   }
-
 `;
 
 export const InputContainer = styled.div`
-
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: green;
 
   input {
     width: 100%;
-    padding: 8px 0px 8px 0px;
-    border: none;
+    padding: 10px 0px 10px 15px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: var(--grey-2);
+    color: var(--grey-0);
+    ::placeholder {
+      color: #868E96;
+    }
+    :focus {
+      outline-color: var(--grey-0);
+    }
   }
-
 `;
