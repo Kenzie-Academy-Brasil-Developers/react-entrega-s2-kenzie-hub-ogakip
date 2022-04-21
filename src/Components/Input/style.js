@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 90%;
-  height: 60px;
+  height: ${(props) => (props.height ? props.height : "60px")};
   display: flex;
   justify-content: center;
 
@@ -27,7 +27,7 @@ export const InputContainer = styled.div`
     background-color: var(--grey-2);
     color: var(--grey-0);
     ::placeholder {
-      color: #868E96;
+      color: #868e96;
     }
     :focus {
       outline-color: var(--grey-0);
