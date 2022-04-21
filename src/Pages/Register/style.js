@@ -5,26 +5,25 @@ export const Container = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: var(--grey-4);
 
   button {
-      cursor: pointer;
+    cursor: pointer;
   }
 `;
 
 export const FormContainer = styled.div`
   width: 90%;
   max-width: 400px;
-  /* height: 80%; */
-  /* max-height: 1000px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
   background-color: var(--grey-3);
+  margin-bottom: 50px;
+  
 
   h1 {
     font-size: 15px;
@@ -49,12 +48,20 @@ export const FormContainer = styled.div`
     button {
       padding: 10px 0px 10px 0px;
     }
+
+    p {
+      color: var(--grey-0);
+      a {
+        color: var(--pink-1);
+        font-weight: 600;
+      }
+    }
   }
 `;
 
 export const ModuleContainer = styled.div`
   width: 90%;
-  height: 70px;
+  height: 65px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -94,9 +101,15 @@ export const HeaderContainer = styled.div`
   max-width: 400px;
   display: flex;
   justify-content: space-between;
-  margin: 25px 0px 25px 0px;
+  margin: 50px 0px 25px 0px;
+`;
 
-  @media (min-width: 768px) {
-    margin: 0px 0px 25px 0px;
+export const PasswordContainer = styled.div`
+  width: 90%;
+  display: flex;
+
+  img {
+    width: 20px;
+    margin: 27px 0px 0px 10px;
   }
 `;
