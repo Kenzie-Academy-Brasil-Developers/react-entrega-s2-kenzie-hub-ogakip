@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: var(--grey-4);
-
+  
   button {
     cursor: pointer;
   }
@@ -23,7 +23,6 @@ export const FormContainer = styled.div`
   border-radius: 4px;
   background-color: var(--grey-3);
   margin-bottom: 50px;
-  
 
   h1 {
     font-size: 15px;

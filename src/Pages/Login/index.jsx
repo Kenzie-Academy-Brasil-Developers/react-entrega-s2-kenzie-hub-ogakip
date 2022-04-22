@@ -9,34 +9,35 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../../Validation";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import api from "../../Services/api"
+import api from "../../Services/api";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(LoginSchema),
   });
-  
-  const onSubmitFunction = (data) => {
-    api.post("/sessions", data)
-    .then((response) => {
-      localStorage.setItem("userToken", JSON.stringify(response.data.token))
-      localStorage.setItem("userId", JSON.stringify(response.data.user.id))
-      toast.success("Login realizado com sucesso!")
-      setTimeout(() => {
-        history.push("/")
-      }, 1500)
-    })
-    .catch((error) => console.log(error))
-  }
 
-  if(localStorage.getItem("userToken")) {
-    return <Redirect to="/"/>
+  const onSubmitFunction = (data) => {
+    api
+      .post("/sessions", data)
+      .then((response) => {
+        localStorage.setItem("userToken", JSON.stringify(response.data.token));
+        localStorage.setItem("userId", JSON.stringify(response.data.user.id));
+        toast.success("Login realizado com sucesso!");
+        setTimeout(() => {
+          history.push("/");
+        }, 1500);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  if (localStorage.getItem("userToken")) {
+    return <Redirect to="/" />;
   }
 
   return (
@@ -55,7 +56,7 @@ const Login = () => {
           />
           <S.PasswordContainer>
             <Input
-            autoComplete="off"
+              autoComplete="off"
               height="70px"
               label="Senha"
               type={showPassword ? "text" : "password"}

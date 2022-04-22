@@ -14,8 +14,17 @@ export const Container = styled.li`
     color: var(--grey-0);
   }
 
-  span {
-    font-size: 12px;
-    color: var(--grey-1);
+  div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    img {
+      width: 20px;
+      cursor: pointer;
+    }
+    span {
+      font-size: 12px;
+      color: var(--grey-1);
+    }
   }
 `;

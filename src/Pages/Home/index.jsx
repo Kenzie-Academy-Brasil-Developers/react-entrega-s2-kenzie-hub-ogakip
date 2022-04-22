@@ -7,32 +7,34 @@ import ListSkills from "../../Components/ListSkills";
 import ModalCreateSkill from "../../Components/ModalCreateSkill";
 import { useHistory } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import ModalEdit from "../../Components/ModalEditSkill";
 
 const Home = () => {
   const [userId] = useState(JSON.parse(localStorage.getItem("userId")));
   const [userToken] = useState(JSON.parse(localStorage.getItem("userToken")));
   const [showModal, setShowModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [user, setUser] = useState();
   const [logout, setLogout] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
     if (logout) {
-      localStorage.removeItem("userId")
-      localStorage.removeItem("userToken")
-      history.push("/login")
+      localStorage.removeItem("userId");
+      localStorage.removeItem("userToken");
+      history.push("/login");
     }
-  }, [logout, history])
+  }, [logout, history]);
 
   useEffect(() => {
     api
       .get(`/users/${userId}`)
       .then((response) => setUser(response.data))
       .catch((error) => console.log(error));
-  }, [userId, showModal]);
+  }, [userId, showModal, showEditModal]);
 
   if (!userToken) {
-    return <Redirect to="/login" />
+    return <Redirect to="/login" />;
   }
 
   return (
@@ -67,7 +69,10 @@ const Home = () => {
         {user && (
           <>
             {user.techs.length > 0 ? (
-              <ListSkills listSkills={user.techs} />
+              <ListSkills
+                setShowEditModal={setShowEditModal}
+                listSkills={user.techs}
+              />
             ) : (
               <S.EmptyList>
                 <p>Você ainda não possui nenhuma tecnologia listada</p>
@@ -78,6 +83,13 @@ const Home = () => {
       </S.SkillsContainer>
       {showModal && (
         <ModalCreateSkill token={userToken} setShowModal={setShowModal} />
+      )}
+      {showEditModal && (
+        <ModalEdit
+          userToken={userToken}
+          listUserSkills={user.techs}
+          setShowEditModal={setShowEditModal}
+        />
       )}
     </S.Container>
   );

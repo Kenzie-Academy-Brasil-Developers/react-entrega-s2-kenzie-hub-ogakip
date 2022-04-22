@@ -5,17 +5,17 @@ import Home from "../Pages/Home";
 
 const Routes = () => {
   return (
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/register">
-          <Register />
-        </Route>
-      </Switch>
+    <Switch>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route exact path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/register">
+        <Register />
+      </Route>
+    </Switch>
   );
 };
 export default Routes;

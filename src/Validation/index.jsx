@@ -39,4 +39,8 @@ export const LoginSchema = yup.object().shape({
 export const SkillSchema = yup.object().shape({
   title: yup.string().required("Título obrigatório"),
   status: yup.string(),
-})
+});
+
+export const UpdateSkill = yup.object().shape({
+  status: yup.string(),
+});

@@ -6,7 +6,7 @@ export const Container = styled.div`
   background-color: var(--grey-4);
 
   button {
-      cursor: pointer;
+    cursor: pointer;
   }
 `;
 
@@ -62,10 +62,10 @@ export const UserItems = styled.div`
 `;
 
 export const SkillsContainer = styled.div`
-width: 100%;
-display: flex;
-flex-direction: column;
-align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const EmptyList = styled.div`
@@ -83,28 +83,28 @@ export const EmptyList = styled.div`
   border-radius: 4px;
   margin-top: 20px;
   p {
-      width: 65%;
-      text-align: center;
-      color: var(--grey-1);
-      font-weight: 600;
+    width: 65%;
+    text-align: center;
+    color: var(--grey-1);
+    font-weight: 600;
   }
 `;
 
 export const AddContainer = styled.div`
-width: 90%;
-max-width: 768px;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin: 15px 0px 5px 0px;
+  width: 90%;
+  max-width: 768px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0px 5px 0px;
 
-h2 {
+  h2 {
     color: var(--grey-0);
     font-size: 16px;
-}
+  }
 
-button {
+  button {
     font-weight: 900;
     font-size: 18px;
-}
-`
+  }
+`;

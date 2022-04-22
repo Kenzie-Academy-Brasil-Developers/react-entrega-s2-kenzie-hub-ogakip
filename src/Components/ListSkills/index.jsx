@@ -1,12 +1,18 @@
 import * as S from "./style";
 import CardSkill from "../CardSkill";
 
-const ListSkills = ({ listSkills }) => {
+const ListSkills = ({ listSkills, setShowEditModal }) => {
   return (
     <S.Container>
       <S.UlContainer>
         {listSkills.map((skill, index) => (
-          <CardSkill title={skill.title} key={index} status={skill.status} />
+          <CardSkill
+            setShowEditModal={setShowEditModal}
+            title={skill.title}
+            key={index}
+            id={skill.id}
+            status={skill.status}
+          />
         ))}
       </S.UlContainer>
     </S.Container>
