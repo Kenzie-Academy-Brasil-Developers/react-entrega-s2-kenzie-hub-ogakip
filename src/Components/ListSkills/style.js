@@ -7,10 +7,25 @@ export const Container = styled.div`
 `;
 
 export const UlContainer = styled.ul`
-  width: 95%;
+  width: 90%;
+  padding: 25px 0px 25px 0px;
   max-width: 768px;
-  gap: 15px;
+  max-height: 350px;
+  overflow-y: scroll;
+  border-radius: 4px;
+  gap: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: var(--grey-3);
+  margin-top: 20px;
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--grey-2);
+    border-radius: 15px;
+  }
 `;

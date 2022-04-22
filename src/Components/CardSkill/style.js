@@ -5,7 +5,7 @@ export const Container = styled.li`
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  padding: 12px 10px 12px 10px;
+  padding: 15px 10px 15px 10px;
   background-color: var(--grey-4);
   border-radius: 4px;
 
