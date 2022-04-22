@@ -65,5 +65,6 @@ width: 90%;
 img {
     width: 20px;
     margin: 30px 0px 0px 10px;
+    cursor: pointer;
 }
 `

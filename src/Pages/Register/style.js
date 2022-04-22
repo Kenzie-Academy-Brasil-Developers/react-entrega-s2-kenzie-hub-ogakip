@@ -117,5 +117,6 @@ export const PasswordContainer = styled.div`
   img {
     width: 20px;
     margin: 27px 0px 0px 10px;
+    cursor: pointer;
   }
 `;
