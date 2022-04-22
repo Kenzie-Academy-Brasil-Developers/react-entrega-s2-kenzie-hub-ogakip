@@ -4,9 +4,12 @@ import api from "../../Services/api";
 import Logo from "../../Assets/Logo.svg";
 import Button from "../../Components/Button";
 import ListSkills from "../../Components/ListSkills";
+import ModalCreateSkill from "../../Components/ModalCreateSkill";
 
 const Home = () => {
   const [userId] = useState(JSON.parse(localStorage.getItem("userId")));
+  const [userToken] = useState(JSON.parse(localStorage.getItem("userToken")))
+  const [showModal, setShowModal] = useState(false)
   const [user, setUser] = useState();
 
   useEffect(() => {

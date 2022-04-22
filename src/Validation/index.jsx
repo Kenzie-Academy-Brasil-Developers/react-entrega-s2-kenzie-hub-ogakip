@@ -35,3 +35,8 @@ export const LoginSchema = yup.object().shape({
     .email("Email inválido, tente novamente!"),
   password: yup.string().required("A senha é obrigatória!"),
 });
+
+export const SkillSchema = yup.object().shape({
+  title: yup.string().required("Título obrigatório"),
+  status: yup.string(),
+})
