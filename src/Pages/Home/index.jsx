@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import api from "../../Services/api";
 import Logo from "../../Assets/Logo.svg";
 import Button from "../../Components/Button";
+import ListSkills from "../../Components/ListSkills";
 
 const Home = () => {
   const [userId] = useState(JSON.parse(localStorage.getItem("userId")));
@@ -31,7 +32,23 @@ const Home = () => {
           <span>{user && user.course_module}</span>
         </S.UserItems>
       </S.UserContainer>
-      
+      <S.SkillsContainer>
+        <S.AddContainer>
+          <h2>Tecnologias</h2>
+          <Button width="30px">+</Button>
+        </S.AddContainer>
+        {user && (
+          <>
+            {user.techs.length > 0 ? (
+              <ListSkills listSkills={user.techs}/>
+            ) : (
+              <S.EmptyList>
+                <p>Você ainda não possui nenhuma tecnologia listada</p>
+              </S.EmptyList>
+            )}
+          </>
+        )}
+      </S.SkillsContainer>
     </S.Container>
   );
 };
