@@ -22,7 +22,7 @@ const App = () => {
         pauseOnFocusLoss={false}
         draggable
         pauseOnHover
-        limit={5}
+        limit={6}
         theme="dark"
       />
     </div>
