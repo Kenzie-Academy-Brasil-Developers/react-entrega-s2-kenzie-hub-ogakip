@@ -25,7 +25,6 @@ const Register = () => {
   const onSubmitFunction = (data) => {
     api.post("/users", data)
     .then((response) => {
-      localStorage.setItem("userToken", response.data.id)
       toast.success("Conta criada com sucesso!")
       setTimeout(() => {
         history.push("/login")
