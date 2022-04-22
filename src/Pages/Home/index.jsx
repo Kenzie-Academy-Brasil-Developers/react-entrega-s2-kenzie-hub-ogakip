@@ -1,5 +1,5 @@
 import * as S from "./style";
-import { useState, useEffect, useId } from "react";
+import { useState, useEffect } from "react";
 import api from "../../Services/api";
 import Logo from "../../Assets/Logo.svg";
 import Button from "../../Components/Button";
@@ -27,8 +27,8 @@ const Home = () => {
       </S.HeaderContainer>
       <S.UserContainer>
         <S.UserItems>
-          <h1>Olá, {user.name}</h1>
-          <span>{user.course_module}</span>
+          <h1>Olá, {user && user.name}</h1>
+          <span>{user && user.course_module}</span>
         </S.UserItems>
       </S.UserContainer>
       
