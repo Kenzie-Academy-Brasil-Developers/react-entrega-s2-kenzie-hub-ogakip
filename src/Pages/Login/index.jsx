@@ -77,7 +77,7 @@ const Login = () => {
           </Button>
           <p>Ainda não tem uma conta?</p>
           <Link className="toRegister" to="/register">
-            <Button width="90%" color="var(--grey-1)">
+            <Button width="90%" color="var(--grey-2)">
               Cadastre-se
             </Button>
           </Link>

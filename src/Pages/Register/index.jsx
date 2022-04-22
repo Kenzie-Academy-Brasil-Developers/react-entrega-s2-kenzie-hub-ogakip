@@ -139,7 +139,7 @@ const Register = () => {
           <span>Já tem uma conta?</span>
           <Button
             onClick={() => history.push("/login")}
-            color="var(--grey-1)"
+            color="var(--grey-2)"
             width="90%"
           >
             Faça Login

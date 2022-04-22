@@ -8,23 +8,23 @@ import { AnimatePresence } from "framer-motion";
 const App = () => {
   return (
     <div>
-        <GlobalStyle />
+      <GlobalStyle />
       <AnimatePresence>
         <Routes />
-        </AnimatePresence>
-        <ToastContainer
-          position="top-right"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable
-          pauseOnHover
-          limit={5}
-          theme="dark"
-        />
+      </AnimatePresence>
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        limit={5}
+        theme="dark"
+      />
     </div>
   );
 };

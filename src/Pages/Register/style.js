@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: var(--grey-4);
-  
+
   button {
     cursor: pointer;
   }
