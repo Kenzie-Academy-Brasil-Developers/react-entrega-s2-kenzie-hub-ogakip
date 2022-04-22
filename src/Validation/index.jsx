@@ -27,3 +27,11 @@ export const RegisterSchema = yup.object().shape({
   bio: yup.string().required("Bio é obrigatória"),
   contact: yup.string().required("Contato é obrigatório"),
 });
+
+export const LoginSchema = yup.object().shape({
+  email: yup
+    .string()
+    .required("Email é obrigatório!")
+    .email("Email inválido, tente novamente!"),
+  password: yup.string().required("A senha é obrigatória!"),
+});
