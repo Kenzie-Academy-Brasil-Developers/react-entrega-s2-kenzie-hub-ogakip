@@ -1,4 +1,4 @@
-import api from "../../Services/api"
+import api from "../../Services/api";
 import * as S from "./style";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,48 +7,48 @@ import { useEffect, useState } from "react";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 import Logo from "../../Assets/Logo.svg";
-import Eye from "../../Assets/eye.svg";
-import EyeSlash from "../../Assets/eyeoff.svg";
+import Eye from "../../Assets/eyegrey.svg";
+import EyeSlash from "../../Assets/eyeoffgrey.svg";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const history = useHistory()
+  const history = useHistory();
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(RegisterSchema),
   });
 
   const onSubmitFunction = (data) => {
-    api.post("/users", data)
-    .then((response) => {
-      toast.success("Conta criada com sucesso!")
-      setTimeout(() => {
-        history.push("/login")
-      }, 1500)
-    })
-    .catch((error) => console.log(error))
+    api
+      .post("/users", data)
+      .then((response) => {
+        toast.success("Conta criada com sucesso!");
+        setTimeout(() => {
+          history.push("/login");
+        }, 1500);
+      })
+      .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    const { name, email, password, confirmPassword, bio, contact } = formState.errors;
+    const { name, email, password, confirmPassword, bio, contact } =
+      formState.errors;
     const allErrors = [name, email, password, confirmPassword, bio, contact];
     const filterErrors = allErrors.filter((error) => error !== undefined);
     filterErrors.map((error) => toast.error(`${error.message}`));
   }, [formState.errors]);
 
   if (localStorage.getItem("userToken")) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
 
   return (
     <S.Container>
       <S.HeaderContainer>
         <img src={Logo} alt="Kenzie Hub Logo" />
-        <Button width="80px">Voltar</Button>
       </S.HeaderContainer>
       <S.FormContainer>
         <h1>Crie sua conta</h1>
@@ -71,20 +71,20 @@ const Register = () => {
             placeholder="Digite aqui seu email"
           />
           <Input
-          height="65px"
-          autoComplete="off"
-          label="Biografia"
-          register={register}
-          name={"bio"}
-          placeholder="Digite aqui a sua biografia"
+            height="65px"
+            autoComplete="off"
+            label="Biografia"
+            register={register}
+            name={"bio"}
+            placeholder="Digite aqui a sua biografia"
           />
           <Input
-          height="65px"
-          autoComplete="off"
-          label="Contato"
-          register={register}
-          name={"contact"}
-          placeholder="Digite aqui o seu contato"
+            height="65px"
+            autoComplete="off"
+            label="Contato"
+            register={register}
+            name={"contact"}
+            placeholder="Digite aqui o seu contato"
           />
           <S.PasswordContainer>
             <Input
@@ -115,6 +115,7 @@ const Register = () => {
           />
           <S.ModuleContainer>
             <label>Selecionar Módulo</label>
+
             <S.SelectContainer>
               <select {...register("course_module")}>
                 <option value="Primeiro módulo (Introdução ao Frontend)">
@@ -135,7 +136,14 @@ const Register = () => {
           <Button type="submit" width="90%" color="var(--pink-3)">
             Cadastrar
           </Button>
-          <p>Já tem uma conta? <Link to="/login" >Clique aqui</Link></p>
+          <span>Já tem uma conta?</span>
+          <Button
+            onClick={() => history.push("/login")}
+            color="var(--grey-1)"
+            width="90%"
+          >
+            Faça Login
+          </Button>
         </form>
       </S.FormContainer>
     </S.Container>

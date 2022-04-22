@@ -5,8 +5,8 @@ const ListSkills = ({ listSkills }) => {
   return (
     <S.Container>
       <S.UlContainer>
-        {listSkills.map((skill) => (
-          <CardSkill title={skill.title} status={skill.status} />
+        {listSkills.map((skill, index) => (
+          <CardSkill title={skill.title} key={index} status={skill.status} />
         ))}
       </S.UlContainer>
     </S.Container>

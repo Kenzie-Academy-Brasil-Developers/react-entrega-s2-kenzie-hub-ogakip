@@ -39,6 +39,7 @@ export const ModalHeader = styled.div`
   }
 
   span {
+    cursor: pointer;
     color: var(--grey-1);
     font-size: 16px;
   }

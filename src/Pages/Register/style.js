@@ -56,6 +56,10 @@ export const FormContainer = styled.div`
         font-weight: 600;
       }
     }
+
+    span {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -100,8 +104,10 @@ export const HeaderContainer = styled.div`
   width: 90%;
   max-width: 400px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin: 50px 0px 25px 0px;
+
+  width: 105px;
 `;
 
 export const PasswordContainer = styled.div`

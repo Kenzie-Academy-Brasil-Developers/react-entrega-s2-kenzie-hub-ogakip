@@ -5,26 +5,48 @@ import Logo from "../../Assets/Logo.svg";
 import Button from "../../Components/Button";
 import ListSkills from "../../Components/ListSkills";
 import ModalCreateSkill from "../../Components/ModalCreateSkill";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const Home = () => {
   const [userId] = useState(JSON.parse(localStorage.getItem("userId")));
-  const [userToken] = useState(JSON.parse(localStorage.getItem("userToken")))
-  const [showModal, setShowModal] = useState(false)
+  const [userToken] = useState(JSON.parse(localStorage.getItem("userToken")));
+  const [showModal, setShowModal] = useState(false);
   const [user, setUser] = useState();
+  const [logout, setLogout] = useState(false);
+  const history = useHistory()
+
+  useEffect(() => {
+    if (logout) {
+      localStorage.removeItem("userId")
+      localStorage.removeItem("userToken")
+      history.push("/login")
+    }
+  }, [logout, history])
 
   useEffect(() => {
     api
       .get(`/users/${userId}`)
       .then((response) => setUser(response.data))
       .catch((error) => console.log(error));
-  }, [userId]);
+  }, [userId, showModal]);
+
+  if (!userToken) {
+    return <Redirect to="/login" />
+  }
 
   return (
     <S.Container>
       <S.HeaderContainer>
         <S.HeaderItems>
           <img src={Logo} alt="Kenzie Hub Logo" />
-          <Button width="56px" color="var(--grey-3)">
+          <Button
+            onClick={() => {
+              setLogout(true);
+            }}
+            width="56px"
+            color="var(--grey-3)"
+          >
             Sair
           </Button>
         </S.HeaderItems>
@@ -38,12 +60,14 @@ const Home = () => {
       <S.SkillsContainer>
         <S.AddContainer>
           <h2>Tecnologias</h2>
-          <Button width="30px">+</Button>
+          <Button onClick={() => setShowModal(true)} width="30px">
+            +
+          </Button>
         </S.AddContainer>
         {user && (
           <>
             {user.techs.length > 0 ? (
-              <ListSkills listSkills={user.techs}/>
+              <ListSkills listSkills={user.techs} />
             ) : (
               <S.EmptyList>
                 <p>Você ainda não possui nenhuma tecnologia listada</p>
@@ -52,6 +76,9 @@ const Home = () => {
           </>
         )}
       </S.SkillsContainer>
+      {showModal && (
+        <ModalCreateSkill token={userToken} setShowModal={setShowModal} />
+      )}
     </S.Container>
   );
 };
