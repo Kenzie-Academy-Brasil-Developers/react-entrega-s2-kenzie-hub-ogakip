@@ -39,6 +39,7 @@ const Register = () => {
     const allErrors = [name, email, password, confirmPassword, bio, contact];
     const filterErrors = allErrors.filter((error) => error !== undefined);
     filterErrors.map((error) => toast.error(`${error.message}`));
+
   }, [formState.errors]);
 
   if (localStorage.getItem("userToken")) {

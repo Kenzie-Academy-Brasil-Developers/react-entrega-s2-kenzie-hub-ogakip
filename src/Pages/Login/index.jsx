@@ -7,7 +7,7 @@ import EyeSlash from "../../Assets/eyeoffgrey.svg";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "../../Validation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import api from "../../Services/api";
 import { toast } from "react-toastify";
@@ -18,7 +18,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const history = useHistory();
 
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(LoginSchema),
   });
 
@@ -35,6 +35,15 @@ const Login = () => {
       })
       .catch((error) => console.log(error));
   };
+
+  useEffect(() => {
+    const { email, password } =
+      formState.errors;
+    const allErrors = [ email, password ];
+    const filterErrors = allErrors.filter((error) => error !== undefined);
+    filterErrors.map((error) => toast.error(`${error.message}`));
+
+  }, [formState.errors]);
 
   if (localStorage.getItem("userToken")) {
     return <Redirect to="/" />;
