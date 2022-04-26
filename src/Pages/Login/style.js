@@ -37,11 +37,29 @@ export const FormContainer = styled.div`
   }
 
   form {
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 25px;
+
+    input {
+      padding: 14px 0px 14px 14px;
+    }
+
+    button {
+      padding: 14px 0px 14px 0px;
+    }
+
+    @media (min-width: 768px) {
+      button {
+        padding: 10px 0px 10px 0px;
+      }
+
+      input {
+        padding: 12px 0px 12px 14px;
+      }
+    }
 
     p {
       align-self: center;

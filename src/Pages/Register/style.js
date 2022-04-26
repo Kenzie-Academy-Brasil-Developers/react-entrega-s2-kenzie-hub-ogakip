@@ -44,8 +44,22 @@ export const FormContainer = styled.div`
     gap: 20px;
     margin-bottom: 33px;
 
+    input {
+      padding: 14px 0px 14px 14px;
+    }
+
     button {
-      padding: 10px 0px 10px 0px;
+      padding: 14px 0px 14px 0px;
+    }
+
+    @media (min-width: 768px) {
+      button {
+        padding: 10px 0px 10px 0px;
+      }
+
+      input {
+        padding: 12px 0px 12px 14px;
+      }
     }
 
     p {
@@ -84,13 +98,17 @@ export const SelectContainer = styled.div`
 
   select {
     width: 95%;
-    padding: 9px 0px 9px 0px;
+    padding: 14px 0px 14px 0px;
     background: none;
     color: var(--grey-1);
     outline: none;
     box-sizing: border-box;
     border: none;
     margin: 0;
+
+    @media (min-width: 768px) {
+      padding: 12px 0px 12px 0px;
+    }
 
     option {
       background-color: var(--grey-2);
